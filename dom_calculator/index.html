@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+          #divc {
+    	  width: 300px;
+	      height: 400px;
+	      margin: auto;
+	      background-color: white;
+	      border-radius: 10px;
+	      border: 5px solid black;
+         }
+
+         h3 {
+	     text-align: right;
+         }
+
+         .buttonNum {
+	    width: 60px;
+	    height: 60px;
+	    font-size: 30px;
+        }
+
+         .operator {
+	    width: 60px;
+	    height: 60px;
+	    font-size: 30px;
+        }
+
+        .equals {
+	     width: 135px;
+	     height: 60px;
+	     font-size: 30px;
+         }
+
+        .buttonClear {
+	    width: 60px;
+	    height: 60px;
+	    font-size: 30px;
+        }
+
+        #screen {
+	    width: 100%;
+	    padding-top: 4px;
+	    background-color: white
+        }
+
+        button {
+	    background-color: white;
+	    margin: 5px;
+	    border-radius: 5px;
+        }
+
+        .display {
+	    margin-right: 10px
+        }
+     </style>
+     <script>
+         document.addEventListener("DOMContentLoaded", function() {
+  console.log("dom is loaded");
+  
+  var num1 ;
+  var num2 ;
+  var op ; 
+var turn1 =1;
+
+ 
+  var buttonNum = document.getElementsByClassName("buttonNum");
+  var display = document.getElementById('screen');
+  var operator = document.getElementsByClassName('operator');
+
+  var clr = document.getElementsByClassName('buttonClear');
+  var eq = document.getElementsByClassName('equals');
+
+
+  clr[0].addEventListener('click', function() {
+    num1 = 0;
+    num2 = 0;
+    display.innerHTML = "";
+turn1 = 1;
+  });
+
+  buttonNum[6].addEventListener("click", function(event) {
+    event.stopPropagation();
+    display.innerHTML = "1";
+    if (turn1 === 1) {
+      num1 = 1;
+    } else {
+      num2 = 1;
+    }
+
+
+
+  })
+
+  buttonNum[7].addEventListener("click", function(event) {
+    event.stopPropagation();
+    display.innerHTML = "2";
+    if (turn1 === 1) {
+      num1 = 2;
+    } else {
+      num2 = 2;
+    }
+
+
+
+  })
+
+  buttonNum[8].addEventListener("click", function(event) {
+    event.stopPropagation();
+    display.innerHTML = "3";
+    if (turn1 === 1) {
+      num1 = 3;
+    } else {
+      num2 = 3;
+    }
+  })
+
+  buttonNum[3].addEventListener("click", function(event) {
+    event.stopPropagation();
+    display.innerHTML = "4";
+    if (turn1 === 1) {
+      num1 = 4;
+    } else {
+      num2 = 4;
+    }
+  })
+
+  buttonNum[4].addEventListener("click", function(event) {
+    event.stopPropagation();
+    display.innerHTML = "5";
+    if (turn1 === 1) {
+      num1 = 5;
+    } else {
+      num2 = 5;
+    }
+
+  })
+
+  buttonNum[5].addEventListener("click", function(event) {
+    event.stopPropagation();
+    display.innerHTML = "6";
+    if (turn1 === 1) {
+      num1 = 6;
+    } else {
+      num2 = 6;
+    }
+
+  })
+
+  buttonNum[0].addEventListener("click", function(event) {
+    event.stopPropagation();
+    display.innerHTML = "7";
+    if (turn1 === 1) {
+      num1 = 7;
+    } else {
+      num2 = 7;
+    }
+  })
+
+  buttonNum[1].addEventListener("click", function(event) {
+    event.stopPropagation();
+    display.innerHTML = "8";
+    if (turn1 === 1) {
+      num1 = 8;
+    } else {
+      num2 = 8;
+    }
+  })
+
+  buttonNum[2].addEventListener("click", function(event) {
+    event.stopPropagation();
+    display.innerHTML = "9";
+    if (turn1 === 1) {
+      num1 = 9;
+    } else {
+      num2 = 9;
+    }
+
+  })
+
+  if (turn1 === 1) {
+    operator[0].addEventListener('click', function(event) {
+      display.innerHTML = "*";
+      op = 3;
+      turn1 =2;
+
+    });
+
+    operator[1].addEventListener('click', function(event) {
+      display.innerHTML = "/";
+      op = 4;
+      turn1 =2;
+
+    });
+
+    operator[2].addEventListener('click', function(event) {
+      display.innerHTML = "-";
+      op = 2;
+      turn1 =2;
+
+    });
+
+    operator[3].addEventListener('click', function(event) {
+      op = 1;
+      turn1 =2;
+      display.innerHTML = "+";
+
+    });
+    eq[0].addEventListener('click' , function(event){
+
+    
+    if(turn1 === 2)
+        {
+      var answ;
+if(op==1)
+{
+  answ = num1 +num2;
+
+}
+if(op==2)
+{
+  answ = num1 -num2;
+
+}
+if(op==3)
+{
+  answ = num1 *num2;
+
+}
+if(op==4)
+{
+  answ = num1 /num2;
+
+}
+
+
+        display.innerHTML = (answ);
+
+
+  turn1 =true;
+
+
+num1=0;
+num2=0;
+}
+
+
+
+});
+
+}
+});
+     </script>
+    <div id="divc">
+        <div class="display">
+            <h3 id="screen">?</h3>
+        </div>
+        <button class="buttonNum">7</button>
+        <button class="buttonNum">8</button>
+        <button class="buttonNum">9</button>
+        <button class="operator">*</button>
+        <button class="buttonNum">4</button>
+        <button class="buttonNum">5</button>
+        <button class="buttonNum">6</button>
+        <button class="operator">/</button>
+        <button class="buttonNum">1</button>
+        <button class="buttonNum">2</button>
+        <button class="buttonNum">3</button>
+        <button class="operator">-</button>
+        <button class="buttonClear">AC</button>
+        <button class="equals">=</button>
+        <button class="operator">+</button>
+    </div>
+</body>
+</html>
