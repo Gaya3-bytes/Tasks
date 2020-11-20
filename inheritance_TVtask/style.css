@@ -1,0 +1,13 @@
+.disp {
+    height: 600px;
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+select {
+    width: 35%;
+    height: 30px;
+}
